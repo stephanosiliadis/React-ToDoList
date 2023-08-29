@@ -1,17 +1,22 @@
-import ListItem from "./ListItem";
-
 function ToDoList(props) {
-  const displayListItems = (listItem) => {
-    <ListItem
-      item={listItem.item}
-      date={listItem.date}
-      state={listItem.state}
-    />;
+  const showItems = (listItem, index) => {
+    return (
+      <tr key={index}>
+        <td>{listItem.item}</td>
+        <td>{listItem.date}</td>
+        <td>
+          <button className="btn btn-danger">Delete Item</button>
+        </td>
+      </tr>
+    );
   };
   return (
     <div className="m-3">
-      <h3>Your To-Do List:</h3>
-      <table border={1} className="m-3">
+      <h3>
+        Your To-Do List
+        <img src="../../public/list.png" alt="to-do-list" />
+      </h3>
+      <table border={1} className="table table-striped m-3">
         <thead>
           <tr>
             <th>Item</th>
@@ -19,7 +24,7 @@ function ToDoList(props) {
             <th>Delete</th>
           </tr>
         </thead>
-        <tbody>{displayListItems}</tbody>
+        <tbody>{props.items.map(showItems)}</tbody>
       </table>
     </div>
   );

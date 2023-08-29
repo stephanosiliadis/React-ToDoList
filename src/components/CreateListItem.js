@@ -6,7 +6,17 @@ function CreateListItem(props) {
     setItem(event.target.value);
   };
   const handleAddItem = () => {
-    props.addItemCallback(item);
+    let currentDate = new Date();
+    let month = currentDate.getMonth() + 1;
+    let day = currentDate.getDate();
+    let year = currentDate.getFullYear();
+    let formattedDate = month + "-" + day + "-" + year;
+    props.addItemCallback({
+      item: item,
+      date: formattedDate,
+      visible: true,
+    });
+    setItem("");
   };
   return (
     <div className="container">
@@ -20,7 +30,7 @@ function CreateListItem(props) {
             className="form-control"
             value={item}
             onChange={handleItemChange}
-          />+
+          />
           <button className="btn btn-success" onClick={handleAddItem}>
             Add Item
           </button>

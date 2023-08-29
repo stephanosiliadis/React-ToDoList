@@ -1,15 +1,19 @@
+import { useState } from "react";
 import ToDoList from "./components/ToDoList";
 import CreateListItem from "./components/CreateListItem";
 
+import "./App.css";
+
 function App() {
+  const [listItems, setListItems] = useState([]);
   const newListItem = (listItem) => {
-    console.log(listItem);
+    setListItems((prevListItems) => [...prevListItems, listItem]);
   };
 
   return (
     <div className="App">
       <div className="container">
-        <ToDoList />
+        <ToDoList items={listItems} />
         <CreateListItem addItemCallback={newListItem} />
       </div>
     </div>
