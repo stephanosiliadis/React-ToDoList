@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function CreateListItem(props) {
   const [item, setItem] = useState("");
@@ -18,6 +18,16 @@ function CreateListItem(props) {
     });
     setItem("");
   };
+
+  useEffect(() => {
+    const submitButton = document.querySelector("#submit-btn");
+    if (item !== "") {
+      submitButton.disabled = false;
+    } else {
+      submitButton.disabled = true;
+    }
+  }, [item]);
+
   return (
     <div className="container">
       <div className="col-6">
@@ -30,8 +40,9 @@ function CreateListItem(props) {
             className="form-control"
             value={item}
             onChange={handleItemChange}
+            required
           />
-          <button className="btn btn-success" onClick={handleAddItem}>
+          <button className="btn btn-success" onClick={handleAddItem} id="submit-btn">
             Add Item
           </button>
         </div>
