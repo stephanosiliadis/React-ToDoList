@@ -42,7 +42,11 @@ function CreateListItem(props) {
             onChange={handleItemChange}
             required
           />
-          <button className="btn btn-success" onClick={handleAddItem} id="submit-btn">
+          <button
+            className="btn btn-success"
+            onClick={handleAddItem}
+            id="submit-btn"
+          >
             Add Item
           </button>
         </div>
