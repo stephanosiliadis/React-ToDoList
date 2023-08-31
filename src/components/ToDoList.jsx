@@ -14,7 +14,7 @@ function ToDoList(props) {
     <div className="m-3">
       <h3>
         Your To-Do List
-        <img src="../../public/list.png" alt="to-do-list" />
+        <img src="/list.png" alt="to-do-list" />
       </h3>
       <table border={1} className="table table-striped m-3">
         <thead>
