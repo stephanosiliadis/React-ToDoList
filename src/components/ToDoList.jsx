@@ -5,7 +5,7 @@ function ToDoList(props) {
         <td>{listItem.item}</td>
         <td>{listItem.date}</td>
         <td>
-          <button className="btn btn-danger">Delete Item</button>
+          <button className="btn btn-danger" onClick={() => props.deleteItemCallback(listItem)}>Delete Item</button>
         </td>
       </tr>
     );
