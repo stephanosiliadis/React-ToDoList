@@ -29,15 +29,18 @@ function App() {
   };
 
   const deleteListItem = (listItem) => {
-    const requestOptions = {
-      method: "DELETE",
-    };
-    fetch(
-      `http://localhost:3000/listItems/${listItem.id}`,
-      requestOptions
-    ).then(() => {
-      setListItems(listItems.filter((item) => item.id !== listItem.id));
-    });
+    let deleteItem = window.confirm(`Do you want to delete ${listItem.item} from your list?`);
+    if (deleteItem) {
+      const requestOptions = {
+        method: "DELETE",
+      };
+      fetch(
+        `http://localhost:3000/listItems/${listItem.id}`,
+        requestOptions
+      ).then(() => {
+        setListItems(listItems.filter((item) => item.id !== listItem.id));
+      });
+    }
   };
 
   return (
