@@ -7,7 +7,16 @@ import "./App.css";
 function App() {
   const [listItems, setListItems] = useState([]);
   const newListItem = (listItem) => {
-    setListItems((prevListItems) => [...prevListItems, listItem]);
+    let requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(listItem),
+    };
+    fetch("http://localhost:3000/listItems", requestOptions)
+      .then((response) => response.json())
+      .then((responseData) =>
+        setListItems((prevListItems) => [...prevListItems, responseData])
+      );
   };
 
   return (

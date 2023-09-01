@@ -14,7 +14,6 @@ function CreateListItem(props) {
     props.addItemCallback({
       item: item,
       date: formattedDate,
-      visible: true,
     });
     setItem("");
   };
