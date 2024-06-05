@@ -1,4 +1,4 @@
-function ToDoList(props) {
+export default  function ToDoList(props) {
   const showItems = (listItem, index) => {
     return (
       <tr key={index}>
@@ -34,5 +34,3 @@ function ToDoList(props) {
     </div>
   );
 }
-
-export default ToDoList;

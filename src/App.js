@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import ToDoList from "./components/ToDoList";
 import CreateListItem from "./components/CreateListItem";
+import "./css/App.css";
 
-import "./App.css";
-
-function App() {
+export default function App() {
   const [listItems, setListItems] = useState([]);
 
   useEffect(() => {
@@ -29,7 +28,9 @@ function App() {
   };
 
   const deleteListItem = (listItem) => {
-    let deleteItem = window.confirm(`Do you want to delete ${listItem.item} from your list?`);
+    let deleteItem = window.confirm(
+      `Do you want to delete ${listItem.item} from your list?`
+    );
     if (deleteItem) {
       const requestOptions = {
         method: "DELETE",
@@ -52,5 +53,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

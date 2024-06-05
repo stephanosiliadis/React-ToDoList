@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function CreateListItem(props) {
+export default function CreateListItem(props) {
   const [item, setItem] = useState("");
   const handleItemChange = (event) => {
     setItem(event.target.value);
@@ -53,5 +53,3 @@ function CreateListItem(props) {
     </div>
   );
 }
-
-export default CreateListItem;
